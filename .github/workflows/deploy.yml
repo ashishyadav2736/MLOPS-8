@@ -18,7 +18,7 @@ jobs:
         runs-on: ubuntu-latest
 
         container:
-            image: google/cloud-sdk:latest
+            image: gcr.io/google.com/cloudsdktool/cloud-sdk:slim-with-docker
 
         steps:
             - name: Checkout Repository
@@ -46,4 +46,4 @@ jobs:
             - name: Deploying to Kubernetes
               run: |
                 kubectl apply -f kubernetes-deployment.yaml
-                kubectl set image deployment/$DEPLOYMENT_NAME mlops-app=$IMAGE:$GITHUB_SHA
+                kubectl set image deployment/$DEPLOYMENT_NAME $DEPLOYMENT_NAME=$IMAGE:$GITHUB_SHA
