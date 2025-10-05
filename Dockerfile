@@ -10,4 +10,4 @@ EXPOSE 5000
 
 ENV FLASK_APP=application.python
 
-CMD ["python", "application.py"]
+CMD ["python" , "application.py"]
